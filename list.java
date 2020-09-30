@@ -67,6 +67,23 @@ class operations
 			prev.next=ptr.next;
 
 	}
+	void delete_last()
+    {
+    	if(start==null)
+    	{
+    		System.out.println("empty list");
+    		return;
+    	}
+    	if(start.next==null)
+    	{
+    		start=null;
+    		return;
+    	}
+    	Node ptr=start;
+    	while(ptr.next.next!=null)
+    		ptr=ptr.next;
+    	ptr.next=null;
+    }
 }
 class List
 {
@@ -77,7 +94,7 @@ class List
 		int ch;
 		do
 		{
-			System.out.print("ENTER YOUR CHOICE 1.INSERTFIRST 2.DELETEFIRST 3.INSERTAFTER 4.DELETEANY: ");
+			System.out.print("ENTER YOUR CHOICE 1.INSERTFIRST 2.DELETEFIRST 3.INSERTAFTER 4.DELETEANY:6.deletelast ");
 			ch=s.nextInt();
 			switch(ch)
 			{
@@ -105,6 +122,9 @@ class List
 				o1.deletekey(key);
 				o1.display();
 				break;
+				case 6:
+                        o.delete_last();
+                        break;
 
 			}
 
