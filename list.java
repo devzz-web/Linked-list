@@ -35,6 +35,24 @@ class operations
 		last=newnode;
 			
 	}
+	void delete_last()
+    {
+    	if(start==null)
+    	{
+    		System.out.println("empty list");
+    		return;
+    	}
+    	if(start.next==null)
+    	{
+    		start=null;
+    		return;
+    	}
+    	Node ptr=start;
+    	while(ptr.next.next!=null)
+    		ptr=ptr.next;
+    	ptr.next=null;
+    }
+
 	void display()
 	{
 		Node ptr=start;
@@ -91,7 +109,7 @@ class List
 		int ch;
 		do
 		{
-			System.out.print("ENTER YOUR CHOICE 1.INSERTFIRST 2.DELETEFIRST 3.INSERTAFTER 4.DELETEANY 5.INSERTLAST: ");
+			System.out.print("ENTER YOUR CHOICE 1.INSERTFIRST 2.DELETEFIRST 3.INSERTAFTER 4.DELETEANY 5.INSERTLAST: 6.DELETELAST ");
 			ch=s.nextInt();
 			switch(ch)
 			{
@@ -124,9 +142,12 @@ class List
 				int dat = s.nextInt();
 				o1.insertlast(dat);
 				break;
+				case 6:
+                        	o.delete_last();
+                        	break;
 			}
 
 		}
-		while(ch<5);
+		while(ch<7);
 	}
 }
