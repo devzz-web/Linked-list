@@ -21,6 +21,20 @@ class operations
 	{
 		start=start.next;
 	}
+	
+	void insertlast(int data)
+	{
+		Node newnode=new Node(data);
+		if (start==null)
+		{
+			start=newnode;
+			last=newnode;
+			return;
+		} 
+		last.next=newnode;
+		last=newnode;
+			
+	}
 	void display()
 	{
 		Node ptr=start;
@@ -77,7 +91,7 @@ class List
 		int ch;
 		do
 		{
-			System.out.print("ENTER YOUR CHOICE 1.INSERTFIRST 2.DELETEFIRST 3.INSERTAFTER 4.DELETEANY: ");
+			System.out.print("ENTER YOUR CHOICE 1.INSERTFIRST 2.DELETEFIRST 3.INSERTAFTER 4.DELETEANY 5.INSERTLAST: ");
 			ch=s.nextInt();
 			switch(ch)
 			{
@@ -105,7 +119,11 @@ class List
 				o1.deletekey(key);
 				o1.display();
 				break;
-
+				case 5:
+				System.out.print("ENTER THE DATA: ");
+				int dat = s.nextInt();
+				o1.insertlast(dat);
+				break;
 			}
 
 		}
